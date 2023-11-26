@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://boph5nb4emeid"]
+
+[ext_resource type="Texture2D" uid="uid://bcu8kig8xwwbk" path="res://Textures/dirt_full_new.png" id="1_gtuus"]
+[ext_resource type="PackedScene" uid="uid://drrjt8b7si8am" path="res://Player/player.tscn" id="2_yo6db"]
+[ext_resource type="PackedScene" uid="uid://c7v1bppk0av46" path="res://enemy/enemy.tscn" id="3_teu3s"]
+[ext_resource type="PackedScene" uid="uid://dov76b1cwh056" path="res://Ultility/enemy_spawner.tscn" id="4_6do0u"]
+
+[node name="World" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 2
+texture_repeat = 2
+position = Vector2(137, 118)
+texture = ExtResource("1_gtuus")
+region_enabled = true
+region_rect = Rect2(0, 0, 2000, 2000)
+
+[node name="Player" parent="." instance=ExtResource("2_yo6db")]
+position = Vector2(20, 23)
+
+[node name="Enemy_kobold_w" parent="." instance=ExtResource("3_teu3s")]
+position = Vector2(360, 186)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("4_6do0u")]
