@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://boph5nb4emeid"]
+[gd_scene load_steps=8 format=3 uid="uid://boph5nb4emeid"]
 
 [ext_resource type="Texture2D" uid="uid://bcu8kig8xwwbk" path="res://Textures/dirt_full_new.png" id="1_gtuus"]
 [ext_resource type="PackedScene" uid="uid://drrjt8b7si8am" path="res://Player/player.tscn" id="2_yo6db"]
 [ext_resource type="PackedScene" uid="uid://c7v1bppk0av46" path="res://enemy/enemy.tscn" id="3_teu3s"]
 [ext_resource type="PackedScene" uid="uid://dov76b1cwh056" path="res://Ultility/enemy_spawner.tscn" id="4_6do0u"]
+[ext_resource type="Script" path="res://Ultility/spawn_info.gd" id="5_ww8ss"]
+
+[sub_resource type="Resource" id="Resource_a76j6"]
+script = ExtResource("5_ww8ss")
+time_start = 0
+time_end = 5
+enemy = ExtResource("3_teu3s")
+enemy_num = 1
+enemy_spawn_delay = 0
+
+[sub_resource type="Resource" id="Resource_cwavj"]
+script = ExtResource("5_ww8ss")
+time_start = 5
+time_end = 60
+enemy = ExtResource("3_teu3s")
+enemy_num = 10
+enemy_spawn_delay = 0
 
 [node name="World" type="Node2D"]
 
@@ -22,3 +39,4 @@ position = Vector2(20, 23)
 position = Vector2(360, 186)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("4_6do0u")]
+spawns = Array[ExtResource("5_ww8ss")]([SubResource("Resource_a76j6"), SubResource("Resource_cwavj")])
